@@ -1,0 +1,389 @@
+v2.34 changes
+
+Various security vulnerability fixes.
+
+v2.33 changes
+
+Added ability to create .md5 files from the shell extension.
+
+Slight speedup on files less than 1GB in size.
+
+Slight speedup on .sfv files with more than approximately
+1000 files.  Also sped up sorting the result columns.
+
+v2.32 changes
+
+Fixed a bug when an '=' character existed in the path
+or filename.
+
+Added ability to create .md5 files from the shell interface.
+
+v2.31 changes
+
+Fixed creating/verifying files over 1GB in size on Win9x
+platforms.
+
+v2.3 changes:
+
+Fixed a buffer overflow in creating .sfv files when the path
+was longer than allowable under Windows.
+
+Improved file reading speed which improves both creation
+and verification speeds.
+
+Added CRC in feedback window.
+
+Changed about screen to reflect new URL for QuickSFV.
+
+v2.22 changes:
+
+Relaxed the character matching logic when searching for
+missing filenames during verification.
+
+Fixed a bug when reading .sfv files that wrapped filenames
+with a double quote.
+
+Fixed a bug relating to compatibility with Windows XP's
+Start Menu.
+
+Made the OUTPUT:filename.ext function deny requests to
+other apps that attempt to open the file for reading to help
+signal to other apps when QuickSFV has finished verifying.
+
+v2.21 changes:
+
+Fixed saved window position on multiple monitor systems.
+
+Fixed verifying individual files within any files other than
+.PAR files.
+
+v2.2 changes:
+
+Removed Maximize box from main window.
+
+Fixed moving of files where .sfv name and new directory used
+older 8.3 file naming conventions.  (Thanks Windows for giving me
+the 8.3 names instead of the REAL ones!)
+
+Allow for reparenting during the verification process
+instead of having to wait for the current process to finish.
+
+Added preliminary support for .PAR files.  QuickSFV can verify
+files that have been protected using the PAR mechanism.  With
+support from the PAR file specification, QuickSFV can use the
+same Previously Checked Database to skip files that have
+previously been verified.  This version only supports verifying
+files.  It does not recover bad or missing files.  This is planned
+for a future release as well as the initial creation of .PAR
+files.
+
+v2.1 changes:
+
+Added support for reading .CSV files.
+
+Added a right-click menu option for "reparenting" a .sfv file.
+This will allow you to open a .sfv file, but verify files that
+are located in a different subdirectory, such as a CD-ROM.
+
+Added a right-click menu option for moving all good files into
+a subdirectory.  The subdirectory will be named after the .sfv
+filename and all good files as well as the actual .sfv file will
+be moved into the new subdirectory.  Any existing failed files
+will be left in the original subdirectory.  This option is not
+available when the .sfv file has been reparented to a different
+subdirectory.
+
+Added the option to select which files to associate QuickSFV
+with during installation.
+
+Fixed the UI sorting routines.  Having a large number of files
+would cause the sort routines to overrun the stack.  New methods
+were written to sort faster and be able to handle near unlimited
+number of files.
+
+v2.0a changes:
+
+Fixed: JPEGSheriff file reading.  In an effort to count the number
+of items in the file, it was not repositioning the file pointer
+correctly for JPEGSheriff crc files.
+
+Fixed: Opening files under Win9x.  In an effort to open more shared
+files, I used a flag only supported by Windows NT which failed
+under Windows 9x.
+
+v2.00 changes:
+
+Updated GUI to include graphics representing good and bad files.
+Also displays current totals while processing.  QuickSFV now
+uses sortable columns so you can resize them to see the information
+you need.
+
+Increased processing speed by up to 2x.  New disk access
+routines and other optimizations produced almost double the
+processing speed.  Increases are for both creating .SFV files and
+verifying them.
+
+Added a Menu to allow opening of other .SFV files from the main
+window.  For those who like the clean look, you can specify
+ShowMenu=FALSE in the .INI file to hide the menu.
+
+Added an expiration function for the Previous Verified DB.  This
+is an .INI setting allowing you to specify the maximum date
+of the DB before assuming it is old and reverifying all of the files.
+It defaults to no expiration, but you can specify it in days, hours
+minutes and seconds.  e.g.  ExpireTime=1d 3h 15m 20s would expire
+the DB in 1 day 3 hours, 15 minutes and 20 seconds.  You can enter
+something as simple as ExpireTime=30d to specify 30 days.  The Last
+Verified Time is always written to the .SFV.  This means that your
+expire time needs to elapse from the LAST time you verified it.  Not
+the first time.  e.g.  If your expire time is set to 5 days, but you
+verify the .SFV every day, your DB will never expire.  5 days would
+have to pass without verifying the .SFV before the DB would be
+considered expired.
+
+Added ability to add subdirectories into the .SFV file.  This will
+include all files in the selected subdirectory AND all files and
+subdirectories below it.
+
+Added right-click menu option to automatically select all bad files.
+This can then be used to COPY all the bad filenames to the clipboard.
+
+Added right-click menu option to delete selected files.
+
+Added right-click menu option to remove all Previously Verified 
+DB info from the current .SFV file.
+
+Added logic that detects when a file is newer than the last time
+the .SFV file was checked and reverifies the file regardless of the
+Previous Verified DB data.
+
+Added ability to 'Skip All' when creating .SFV files when selected
+files are unable to be opened.
+
+v1.71 changes:
+
+Fixed a bug in the OUTPUT: command line option that could
+cause verifying to fail on many systems when outputting
+the results to a text file.
+
+Fixed a bug that could occasionally cause QuickSFV to
+crash while verifying zero-length files.
+
+Fixed a bug in the installer that could report a successful
+install of QuickSFV even though some of the files may not
+have copied due to them already running in memory.
+
+Added an about screen to the system menu of QuickSFV.exe.
+The about screen does not exist in the Verify Individual
+File window's system menu.  This was done to keep the
+size of the DLL down.
+
+Changed the Verify Individual File system to look for each
+filename in all of the existing .SFV, .CRC and .CKZ files
+in the same directory.  V1.70 would only look in a .SFV
+file if it had the same filename as the selected file.
+
+v1.70 changes:
+
+Fixed a bug that caused QuickSFV to crash when creating a 
+.SFV file with files that have no extension.
+
+Corrected an issue where QuickSFV would place the files
+in the .SFV in the order that they were given by Windows
+Explorer instead of by alphabetical order.
+
+Fixed a display bug in the Windows Explorer Status Bar
+under Windows 9x systems.
+
+Fixed a reporting bug when verifying.  If a file could
+not be opened, QuickSFV would report that the file failed
+but still might report 'All files OK' at the end.  The file
+is now considered to be "Bad".
+
+Corrected an issue where QuickSFV will now add the .SFV
+file extension if no extension is given during .SFV
+creation.
+
+Added the ability to verify individual files from the Windows
+Explorer interface, bypassing the Previously Verified
+Database that might exist in the related .SFV file of each
+individual file selected.  Just select one or more files you 
+wish to verify, then right click and select the 'Verify 
+Individual Files' option.  QuickSFV will attempt to locate 
+the related .SFV file of each file chosen and verify the file.
+
+Added an INI setting for the default .SFV file name.  The
+setting is DefaultFilename= and can be set to any filename.
+Do not include any folder/path info.  This setting will
+override QuickSFV's suggestion for the .SFV filename.  If
+no INI setting exists, QuickSFV will still suggest a
+suitable .SFV filename based on the files selected.
+
+Added an INI setting to bypass the 'Done' dialog at the
+end of creating a .SFV file.  The setting is ShowDoneCreate=
+and should be set to 0 (zero) to bypass the notice.  If this
+setting is 1 or does not exist, QuickSFV will show the
+notice.
+
+Added a WIN-SFV32 compatibility mode so that .SFV files
+created with QuickSFV can be verified by WIN-SFV32.  This
+setting is persistent across multiple .SFV creations.
+
+Modified the File Read routines to help increase the I/O
+throughput to help increase the overall speed.  Tests
+have shown a 30% increase in overall speed on some
+Windows 98 systems.
+
+v1.61 changes:
+
+QuickSFV now supports files whose lengths are greater than
+4GB.  
+
+QuickSFV now remembers the last window position it was in
+and restores that the next time it is launched.
+
+Added a progress bar in the .SFV File Creation status
+window to indicate the progress of the current file.
+
+Enhanced speed on some multi-processor systems.  (Your
+mileage may vary)
+
+Closing QuickSFV while verifying large files will now
+cause QuickSFV to exit immediately.  Previous versions
+would continue to verify the file until it reached the end 
+of the file.
+
+Canceling .SFV File Creation will now cause QuickSFV
+to exit immediately.  Previous versions would continue
+processing until it reached the end of the current file.
+
+v1.60 changes:
+
+A unique signature is now recorded within the Previously
+Checked Files database to keep track of whether the database
+was created by the current user or a different user.  This
+will help when SFV file creators verify the files and leave
+the Previously Checked Files database in place when uploading
+the SFV file.  This signature is simply a random number and
+contains no specific information to the machine it is running
+on.  It is generated during install or if the corresponding
+INI setting is missing.  Upgrading will maintain this
+signature as long as you install to the same folder as the
+existing version of QuickSFV.  Installing to a new folder
+will reset this signature causing QuickSFV to ignore the
+Previously Checked Files database when verifying.  Uninstalling
+QuickSFV will erase the signature.
+
+QuickSFV now has a command-line option for sending the results
+of the verify process to a text file.  The option's format is:
+
+OUTPUT:<filename>
+
+where  <filename> is the name of the file you wish to send the
+results to.  If this file already exists, it will be overwritten
+without warning.  You can enclose the filename in quotes if you
+have spaces in your filename.  i.e. OUTPUT:"My Results.txt"
+To verify an SFV and send the results to a text file, you can
+use something like:
+
+QuickSFV.exe thefile.sfv OUTPUT:results.txt
+
+When sending the results to a file, the QuickSFV window
+will not appear on the screen.
+
+QuickSFV now supports CRC files generated by JPEG Sheriff.
+This code is new and may not work with EVERY CRC file
+generated by JPEG Sheriff.  It also will NOT recurse
+subdirectories searching for the files unlike JPEG Sheriff
+with the 'Recurse subdirectories' option on.
+
+v1.51 changes:
+
+Added an UpdateDB configuration option.  From the Window menu
+of the QuickSFV verify window, you can check or uncheck the
+'Update DB' option.  When Update DB is not checked, QuickSFV
+will not keep track of which files it has previously verified.
+The option is stored in QuickSFV.ini in the same directory as
+the QuickSFV.exe file.  If an SFV file already has an existing
+DB embedded in it, QuickSFV will use it but not update it or 
+remove it.
+
+Added a new installation dialog allowing users to not install
+the Shell Extension or not update the Previously Checked database
+during install.  To install the Shell Extension at a later time,
+the user will have to reinstall QuickSFV.
+
+v1.50b changes:
+
+After verifying files, you can now select lines in the QuickSFV
+window and use CTRL-C to copy the filenames to the clipboard as
+text to be pasted into other applications.
+
+QuickSFV will now handle text files that use only a CR at the end
+of each line instead of a LF or CRLF.
+
+A small bug was fixed when the last line of an .SFV file did not end
+with a CR or LF.  The "Previously Checked Files" database would be 
+tacked on to the end of that line instead of on a line by itself.
+
+The "Create .SFV File" menu option does not appear now when you right-
+click on an .SFV file.  This was done to keep the menu clutter down.
+
+v1.50a changes:
+
+Fixed a stack overflow bug in shell extension under Windows 98.
+
+Pressing the Escape key now aborts and/or closes the QuickSFV window.
+
+Installation now checks for newer versions of the files already 
+installed in the selected destination directory and asks if you want 
+to keep them or install over them.
+
+v1.50 changes:
+
+QuickSFV now allows you to create .SFV files by integrating
+into the Windows Explorer Shell interface.  Just select the files
+you wish to include in the .SFV file, right-click on them and
+choose 'Create .SFV File'.  It will ask you for the .SFV filename.
+The default name will be the first file name but with the extension
+switched to .SFV.
+
+QuickSFV now remembers which files in an .SFV file have been
+successfully verified and does not check them on subsequent
+checks.  You can override this functionality by right-clicking on
+the .SFV file in Explorer and choosing the 'Verify All' option.
+This functionality only works with .SFV files.  (Not .CRC or .CKZ)
+
+QuickSFV now supports the .CKZ v2 format.  
+
+QuickSFV Installation now gives the end user a choice of
+installation directories.  It defaults to your current Windows
+Program Files directory.
+
+v1.02 changes
+
+Previous versions were reporting missing files as 'bad' instead
+of 'missing'.
+
+v1.01 changes:
+
+Now reports version number at the top of the list.
+
+Fixed spaces in filenames.  It now assumes the last space on each line
+is the separating space.  It will ignore all whitespace between this point
+and the last non-whitespace character before it.
+
+Tries to resolve filenames with odd characters.  If a file does not
+exist in the folder under the given name, every character other than
+alphanumerics, dashes, and periods are converted to '?' and a list of all
+matching files is obtained.  If only 1 matching file is found, it uses
+that file.  If more than 1 or no files are found, it reports an error.
+
+Binary CRC files are now supported.  It was my assumption and mistake
+that .crc files were the same as .sfv files.  I'm not certain that I
+have the format supported completely but it works with the two CRC
+files I currently have.
+
+v1.00
+
+Initial release

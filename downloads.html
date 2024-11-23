@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arbux Miner - Earn Free Robux!">
+    <title>Arbux Miner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/arbuxtext-t.png" alt="Arbux Miner">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="howtouse.html">How to use</a></li>
+                <li><a href="howitworks.html">How It Works</a></li>
+                <li><a href="socials.html">Socials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <p id="h1" style="font-size: 3em;">Earn Robux with Arbux Miner</p>
+        <p id="p">Get paid in robux just for running an app and doing nothing!</p>
+    </section>
+
+    <section class="download">
+    <p class="download-title">Download Arbux Miner</p>
+    <p>Get started with Arbux Miner today and start earning effortlessly!</p>
+    
+    <a href="#" id="download-button" class="download-button">Download for Your Platform</a>
+    
+    <p>Available for:</p>
+    <ul class="manual-options">
+        <li><a href="ArbuxInstaller.exe">Windows x64 [Recommended: Windows 10]</a></li>
+        <!-- <li><a href="ArbuxInstaller.tar.gz">Ubuntu Linux [Not supported yet]</a></li> -->
+        <li style="color: rgb(0,0,0, 0.5);">MD5 Checksum: <a style="color: rgb(0,0,0, 0.5);" href="#" onclick="copy(this)">5fe47e7daa3d875f262824a4affd9630</a></li>
+    </ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 Arbux Miner. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const downloadButton = document.getElementById('download-button');
+
+        let downloadLink = '#'; // Default link
+
+        if (navigator.platform.indexOf('Win') > -1) {
+            downloadButton.href = 'ArbuxInstaller.exe'; // Windows link
+        } else if (navigator.platform.indexOf('Linux') > -1) {
+            // downloadButton.href = 'ArbuxInstaller.tar.gz'; // Linux link
+            downloadButton.innerHTML = 'Linux is not yet supported.';
+        }
+
+    });
+    function copy(that){
+        var inp = document.createElement('input');
+        document.body.appendChild(inp);
+        inp.value =that.textContent;
+        inp.select();
+        document.execCommand('copy',false);
+        inp.remove();
+    }
+    </script>
+
+</body>
+</html>
