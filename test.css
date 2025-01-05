@@ -24,6 +24,8 @@ body {
     background-position: center;
 }
 
+
+
 header {
     background-color: #282c34;
     padding: 0.5rem;
@@ -291,4 +293,47 @@ footer {
 
 .social-button:hover {
     background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+
+
+/* HOW IT WORKS */
+section.gen {
+    margin: 40px auto; /* Center the box */
+    padding: 20px;
+    background-color: #fff; /* White background for contrast */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 800px; /* Limit the width for better readability */
+}
+
+section.gen #h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333; /* Darker text for better readability */
+}
+
+section.gen ul li {
+    list-style-type: none;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee; /* Divider between items */
+    padding: 10px 0; /* Vertical padding */
+}
+
+section.gen ul li:last-child {
+    border-bottom: none; /* Remove the border for the last item */
+}
+
+section.gen ul li strong {
+/*    cursor: pointer; Makes it look clickable */
+    font-size: 1.3em;
+    color: #007bff; /* Link color */
+}
+
+section.gen ul li p {
+    margin-left: 10px;
+    color: #555; /* Slightly lighter text color */
 }

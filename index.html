@@ -64,7 +64,8 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Arbux Miner. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Arbux Miner, established in 2024. All rights reserved.</p> 
+        <script> document.getElementById("year").textContent = new Date().getFullYear(); </script>
     </footer>
     <script src="script.js"></script>
 </body>

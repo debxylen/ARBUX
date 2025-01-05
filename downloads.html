@@ -31,8 +31,9 @@
 
     <section class="download">
     <p class="download-title">Download Arbux Miner</p>
-    <p>Get started with Arbux Miner today and start earning effortlessly!</p>
+    <p>Get started with Arbux Miner today and start earning effortlessly!</p><br>
     
+    <p><strong>NOTE: Arbux Miner is currently in development and not intended for use at this time. If the download links do not work, there is no testing version available or required yet. Please note that you will not be rewarded during this phase.</strong></p>
     <a href="#" id="download-button" class="download-button">Download for Your Platform</a>
     
     <p>Available for:</p>
@@ -43,7 +44,8 @@
     </ul>
     </section>
     <footer>
-        <p>&copy; 2024 Arbux Miner. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Arbux Miner, established in 2024. All rights reserved.</p> 
+        <script> document.getElementById("year").textContent = new Date().getFullYear(); </script>
     </footer>
 
     <script src="script.js"></script>
